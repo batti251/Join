@@ -258,6 +258,11 @@ input[type="checkbox"]:checked:hover {
   position: relative;
 }
 
+.email-login {
+  margin: -18px 0;
+  position: relative;
+}
+
 .error-border {
   border-color: #ff8190;
 }

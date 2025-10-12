@@ -183,6 +183,10 @@ async function userLogin(path = "user") {
  * @param {object} responseRef all user credentials from the database
  */
 async function checkLogInCredentials(responseRef) {
+  if (responseRef == null) {
+    showErrorMessage("user-existance", []);
+    return;
+  }
   let usersObj = Object.values(responseRef);
   let loginInput = document.getElementsByTagName("input");
   let name = filterUserName(usersObj, loginInput);
