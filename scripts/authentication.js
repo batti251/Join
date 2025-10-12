@@ -142,7 +142,7 @@ function showMessage(credentials) {
   blur.style.backgroundColor = "rgb(0, 0, 0, 0.10)";
   signup.style.zIndex = "-1";
   setTimeout(() => {
-    location.href = "/index.html";
+    location.href = "../index.html";
   }, 1800);
 }
 
