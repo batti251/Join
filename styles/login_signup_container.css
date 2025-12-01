@@ -1,4 +1,28 @@
-.login-container {
+#login-view {
+  display: grid;
+  grid-template-columns: 200px calc(100% - 400px) 200px;
+  grid-template-rows: 100px calc(100dvh - 200px) 100px;
+  grid-template-areas:
+    "aside header header"
+    "aside main right"
+    "footer footer footer";
+}
+aside {
+  grid-area: aside;
+}
+
+header {
+  grid-area: header;
+}
+
+footer {
+  grid-area: footer;
+  animation: hide 2s forwards;
+  z-index: 1 !important;
+}
+
+main {
+  grid-area: center;
   width: 100%;
   max-width: 652px;
   align-items: center;
@@ -13,22 +37,21 @@
   transition: ease-in-out 0.5s;
 }
 
+.site-container {
+  height: 100%;
+  z-index: 2;
+}
+
 .signup-container {
-  max-height: 49px;
+  /*  max-height: 49px;
   position: sticky;
   top: 67px;
-  left: 1439px;
+  left: 1439px; */
   gap: 35px;
   animation: hide 2s forwards;
 }
 
-.signup-container > span {
-  width: 153px;
-  height: 24px;
-  color: #000000;
-}
-
-.signup-container > button {
+.btn-signup {
   width: 91px;
   height: 49px;
   border-radius: 8px;
@@ -36,13 +59,13 @@
   background-color: #2a3647;
 }
 
-.signup-container > button:hover {
+.btn-signup > button:hover {
   background-color: #29abe2;
   box-shadow: 0 4px 4px 0 rgb(0, 0, 0, 0.25);
 }
 
 .login-headline-container {
-  max-width: 315px;
+  max-width: 280px;
   max-height: 89px;
   gap: 16px;
 }
@@ -52,7 +75,7 @@
 }
 
 .login-headline {
-  width: 315px;
+  width: 100%;
   height: 73px;
   gap: 16px;
 }
@@ -144,14 +167,12 @@ input[type="checkbox"]:checked:hover {
 }
 
 .header-index {
-  padding: 48px 48px;
+  /*   padding: 48px 48px; */
   z-index: 1;
-  display: flex;
-  flex-direction: column-reverse;
 }
 
 .login-btn-container {
-  width: 322px;
+  width: 100%;
   max-height: 48px;
   gap: 35px;
 }
@@ -186,6 +207,10 @@ input[type="checkbox"]:checked:hover {
 .login-btn {
   width: 110px;
   background-color: #2a3647;
+}
+
+.btn-responsive {
+  display: none;
 }
 
 .login-btn:hover,
@@ -311,12 +336,21 @@ input[type="checkbox"]:checked:hover {
 }
 
 @media screen and (max-width: 992px) {
-  .login-container {
+  main {
     width: 322px;
   }
 }
 
 @media screen and (max-width: 600px) {
+  #login-view {
+    grid-template-columns: 50px calc(100% - 100px) 50px;
+    grid-template-rows: 80px calc(100% - 160px) 80px;
+    grid-template-areas:
+      "aside header header"
+      "main main main"
+      "footer footer footer";
+  }
+
   .header-index {
     position: unset;
   }
@@ -333,7 +367,7 @@ input[type="checkbox"]:checked:hover {
     justify-content: space-evenly !important;
   }
 
-  .login-container {
+  main {
     width: 300px;
     max-height: 400px;
     height: 100%;
@@ -346,12 +380,10 @@ input[type="checkbox"]:checked:hover {
     width: 280px;
   }
 
-  .login-btn-container {
-    flex-direction: column;
-  }
-
-  .login-btn-container > button {
-    width: 180px;
+  button {
+    width: 120px !important;
+    padding: 0 !important;
+    font-size: 17px !important;
   }
 
   .login-headline {
@@ -372,4 +404,67 @@ input[type="checkbox"]:checked:hover {
 .reset-join-btn:hover {
   cursor: pointer;
   color: #007cee;
+}
+
+@media screen and (max-width: 400px) {
+  main {
+    width: 260px;
+    gap: 8px;
+  }
+
+  .login-btn-container {
+    gap: 8px;
+    /* flex-wrap: wrap; */
+  }
+
+  button {
+    height: 42px;
+    width: 120px;
+  }
+
+  .site-container {
+    padding: 0 30px 0 0;
+  }
+
+  .btn-signup {
+    width: 70px !important;
+    height: 30px !important;
+  }
+
+  form {
+    width: 240px;
+  }
+
+  .input-content {
+    height: 16px;
+  }
+
+  ul {
+    margin: 0;
+  }
+  li > a {
+    font-size: 12px;
+  }
+
+  input {
+    font-size: 15px;
+  }
+
+  .join-logo-index {
+    top: 12% !important;
+    left: 12% !important;
+  }
+
+  .header-index {
+    padding: 0;
+  }
+
+  .policy-notice {
+    bottom: -5%;
+  }
+
+  .login-btn-container > button{
+    height: 34px;
+    width: 110px;
+  }
 }

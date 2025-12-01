@@ -311,7 +311,7 @@ input::-webkit-calendar-picker-indicator {
   }
 }
 
-@media screen and (max-height: 587px) {
+@media screen and (max-height: 439px) {
   .landscape-orientation {
     display: flex !important;
     align-items: center;
