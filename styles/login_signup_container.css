@@ -4,7 +4,7 @@
   grid-template-rows: 100px calc(100dvh - 100px - 10%) 10%;
   grid-template-areas:
     "aside header header"
-    "aside main right"
+    "aside main main"
     "footer footer footer";
 }
 aside {
@@ -22,7 +22,7 @@ footer {
 }
 
 main {
-  grid-area: center;
+  grid-area: main;
   width: 100%;
   max-width: 652px;
   align-items: center;
@@ -35,6 +35,10 @@ main {
   animation: hide 2s forwards;
   z-index: -1;
   transition: ease-in-out 0.5s;
+}
+
+.signup-container {
+  max-height: 72%;
 }
 
 .site-container {
@@ -88,7 +92,7 @@ main {
 
 form {
   max-width: 422px;
-  max-height: 152px;
+  /*  max-height: 152px; */
   gap: 20px;
 }
 
@@ -100,7 +104,7 @@ input {
 
 .input-container {
   width: 100%;
-  min-height: 52px;
+  min-height: 77.19px;
   max-width: 422px;
   gap: 8px;
 }
@@ -243,8 +247,9 @@ input[type="checkbox"]:checked:hover {
 }
 
 .form-signup {
-  height: 326px;
+  /*   height: 326px; */
   max-width: 422px;
+  gap: 8px;
 }
 
 .signup-btn {
@@ -339,25 +344,38 @@ input[type="checkbox"]:checked:hover {
   main {
     width: 322px;
   }
+
+  .input-container{
+    max-height: 77.19px;
+    min-height: 10.19px;
+  }
+
+  .reset-join {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 600px) {
   #login-view {
     grid-template-columns: 50px calc(100% - 100px) 50px;
-    grid-template-rows: 80px calc(100% - 160px) 80px;
+    grid-template-rows: 100px calc(100dvh - 100px - 10%) 10%;
     grid-template-areas:
       "aside header header"
       "main main main"
       "footer footer footer";
   }
 
+  .login-headline{
+    font-size: 46px;
+  }
+
   .header-index {
     position: unset;
   }
 
-  .signup-container {
+  /*   .signup-container {
     position: unset;
-  }
+  } */
 
   .signup {
     max-height: unset;
@@ -369,7 +387,7 @@ input[type="checkbox"]:checked:hover {
 
   main {
     width: 300px;
-    max-height: 320px;
+    max-height: 400px;
     height: 100%;
     padding: 16px 0;
     justify-content: unset;
@@ -386,18 +404,11 @@ input[type="checkbox"]:checked:hover {
     font-size: 17px !important;
   }
 
-  .login-headline {
-    font-size: 47px;
-  }
 
   .background-fade {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-  }
-
-  .reset-join {
-    display: none;
   }
 }
 
@@ -407,13 +418,40 @@ input[type="checkbox"]:checked:hover {
 }
 
 @media screen and (max-width: 400px) {
+  .login-headline {
+        font-size: 34px;
+    }
+
   #login-view {
-    grid-template-rows: 82px calc(100% - 80px - 10%) 10%;
+    grid-template-rows: 82px calc(100% - 80px - 6%) 6%;
+  }
+
+  .input-container:nth-of-type(4) {
+    height: unset;
+}
+
+  .input-checkbox{
+    font-size: 13px;
+    height: unset;
+   }
+
+   .signup-btn{
+    height: 34px;
+    width: 120px;
+   }
+
+  .join-logo-index > img {
+    height: 51px;
+    width: 70px;
   }
 
   main {
     width: 260px;
     gap: 8px;
+  }
+
+  .login-headline {
+    font-size: 34px;
   }
 
   .login-btn-container {
@@ -433,6 +471,15 @@ input[type="checkbox"]:checked:hover {
   .btn-signup {
     width: 70px !important;
     height: 30px !important;
+  }
+
+  .form-signup > .input-container {
+    min-height: unset;
+  }
+
+  .form-signup > .input-container > .validation {
+    display: none !important;
+    height: 1px;
   }
 
   form {
@@ -470,5 +517,41 @@ input[type="checkbox"]:checked:hover {
   .login-btn-container > button {
     height: 34px;
     width: 110px;
+  }
+}
+
+
+@media screen and (max-height: 700px) {
+    .form-signup > .input-container {
+    min-height: unset;
+  }
+
+  .form-signup > .input-container > .validation {
+    display: none !important;
+    height: 1px;
+  }
+
+  .form-signup > .input-container:nth-of-type(4) {
+    height: unset !important;
+}
+
+
+  .signup-btn{
+    height: 42px;
+    width: 120px;
+    font-size: 17px;
+  }
+
+  .login-headline{
+    height: 52px;
+    font-size: 36px;
+  }
+
+  input{
+    font-size: 17px;
+  }
+
+  .input-content{
+    height: 12px;
   }
 }
