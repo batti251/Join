@@ -80,7 +80,7 @@
 
 @keyframes fadeGreeting {
   0% {
-    height: calc(100vh - 160px);
+   /*  height: calc(100vh - 160px); */
     opacity: 1;
   }
   66% {
@@ -88,6 +88,6 @@
   }
   100% {
     opacity: 0;
-    height: calc(100vh - 160px);
+    /* height: calc(100vh - 160px); */
   }
 }

@@ -137,11 +137,11 @@ function showMessage(credentials) {
   addNewContactOnSignup(credentials);
   let messageBox = document.querySelector(".signup-message");
   let blur = document.querySelector(".background-fade");
-  let signup = document.querySelector(".signup");
+  let signup = document.querySelector(".signup-container");
   messageBox.classList.remove("d-none");
   messageBox.classList.add("d-flex-row-c-c");
   blur.style.backgroundColor = "rgb(0, 0, 0, 0.10)";
-  signup.style.zIndex = "-1";
+  signup.classList.add('index-1')
   setTimeout(() => {
     location.href = "../index.html";
   }, 1800);

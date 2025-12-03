@@ -327,3 +327,7 @@ textarea {
   animation: toast-fly-in-out 3s linear;
   opacity: 1 !important;
 }
+
+.index-1 {
+  z-index: -1 !important;
+}
