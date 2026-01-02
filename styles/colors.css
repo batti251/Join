@@ -118,10 +118,19 @@
   color: #cdcdcd;
 }
 
-.bg-user-story {
+
+
+
+
+
+
+
+
+
+.bg-user-story { /* bg-color-user-story */
   background-color: #0038ff;
 }
 
-.bg-technical-task {
+.bg-technical-task { /* bg-color-technical-task */
   background-color: #1fd7c1;
 }

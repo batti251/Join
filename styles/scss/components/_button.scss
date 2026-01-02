@@ -1,0 +1,51 @@
+@use "../variables" as *;
+@use "../mixin" as *;
+
+button {
+  border-radius: 8px;
+  border-style: unset;
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    background-color: gray;
+  }
+
+  &:disabled:hover {
+    background-color: gray;
+    box-shadow: none;
+    cursor: default;
+  }
+}
+
+.btn-primary {
+  background-color: $color-primary;
+  @include size($h: 48px, $w: 15%);
+  @include text($c: #ffffff);
+  @include font($fs: 21px, $fw: 700);
+  &:hover {
+    background-color: #29abe2;
+    box-shadow: 0 4px 4px 0 rgb(0, 0, 0, 0.25);
+  }
+}
+
+.btn-transparent {
+  @include size($h: 48px, $w: 177px);
+  @include text($c: #2a3647);
+  @include font($fs: 21px, $fw: 700);
+  background-color: transparent;
+  border-color: #2a3647;
+  border-style: solid;
+
+  &:hover {
+    color: #29abe2;
+    border-color: #29abe2;
+    box-shadow: 0 4px 4px 0 rgb(0, 0, 0, 0.25);
+    border-width: 2px;
+  }
+  > span {
+    width: 129px;
+    height: 25px;
+  }
+}

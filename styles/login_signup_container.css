@@ -51,53 +51,53 @@ main {
   animation: hide 2s forwards;
 }
 
-.btn-signup {
+/* .btn-signup {
   width: 91px;
   height: 49px;
   border-radius: 8px;
   gap: 10px;
   background-color: #2a3647;
-}
+} */
 
-.btn-signup > button:hover {
+/* .btn-signup > button:hover {
   background-color: #29abe2;
   box-shadow: 0 4px 4px 0 rgb(0, 0, 0, 0.25);
-}
+} */
 
-.login-headline-container {
+/* .login-headline-container {
   max-width: 280px;
   max-height: 89px;
   gap: 16px;
-}
+} */
 
 .signup > .login-headline-container {
   margin-top: -110px;
 }
 
-.login-headline {
+/* .login-headline {
   width: 100%;
   height: 73px;
   gap: 16px;
-}
+} */
 
-.login-headline-underline {
+/* .login-headline-underline {
   width: 150px;
   border-width: 2px;
   border-style: solid;
-}
+} */
 
 form {
   max-width: 422px;
   gap: 20px;
 }
 
-input {
+/* input {
   width: 100%;
   border: 0;
   font-size: 20px;
-}
+} */
 
-.input-container {
+/* .input-container {
   width: 100%;
   min-height: 77.19px;
   max-width: 422px;
@@ -110,8 +110,8 @@ input {
 
 input:focus-visible {
   outline: none;
-}
-
+} */
+/* 
 .input-content {
   max-width: 100%;
   height: 24px;
@@ -122,9 +122,9 @@ input:focus-visible {
   padding: 12px 21px;
   gap: 10px;
   color: #ffffff;
-}
+} */
 
-.input-checkbox > span {
+/* .input-checkbox > span {
   gap: 10px;
 }
 
@@ -163,45 +163,45 @@ input[type="checkbox"]:checked {
 input[type="checkbox"]:checked:hover {
   background-color: #edf2fa;
   border-radius: 51px;
-}
+} */
 
 .header-index {
     padding: 48px 48px;
   z-index: 1;
 }
 
-.login-btn-container {
+/* .login-btn-container {
   width: 100%;
   max-height: 48px;
   gap: 35px;
-}
+} */
 
-.login-btn-container > button {
+/* .login-btn-container > button {
   height: 48px;
   border-radius: 8px;
   border-width: 1px;
   padding: 8px 16px;
-}
+} */
 
-.guest-login-btn {
+/* .guest-login-btn {
   width: 177px;
   background-color: #ffffff;
   border-color: #2a3647;
   border-style: solid;
   border-width: 1px;
-}
+} */
 
-.guest-login-btn:hover {
+/* .guest-login-btn:hover {
   color: #29abe2;
   border-color: #29abe2;
   box-shadow: 0 4px 4px 0 rgb(0, 0, 0, 0.25);
   border-width: 2px;
-}
+} */
 
-.guest-login-btn > span {
+/* .guest-login-btn > span {
   width: 129px;
   height: 25px;
-}
+} */
 
 .login-btn {
   width: 110px;
@@ -282,10 +282,10 @@ input[type="checkbox"]:checked:hover {
   position: relative;
 }
 
-.email-login {
+/* .email-login {
   margin: -18px 0;
   position: relative;
-}
+} */
 
 .error-border {
   border-color: #ff8190;
@@ -302,9 +302,9 @@ input[type="checkbox"]:checked:hover {
   background-image: url("../assets/icons/lock_icon.svg");
 }
 
-.input-content input:not(:placeholder-shown) ~ .pw-icon {
+/* .input-content input:not(:placeholder-shown) ~ .pw-icon {
   background-image: url("../assets/icons/visibility_off.svg");
-}
+} */
 
 .pw-icon-on {
   cursor: pointer;
@@ -335,18 +335,18 @@ input[type="checkbox"]:checked:hover {
 }
 
 @media screen and (max-width: 992px) {
-  main {
+/*   main {
     width: 322px;
-  }
+  } */
 
-  .form-signup > .input-container{
+/*   .input-container{
     max-height: 77.19px;
     min-height: 10.19px;
-  }
+  } */
 
-  .reset-join {
+/*   .reset-join {
     display: none;
-  }
+  } */
 }
 
 @media screen and (max-width: 600px) {
@@ -403,10 +403,10 @@ input[type="checkbox"]:checked:hover {
   }
 }
 
-.reset-join-btn:hover {
+/* .reset-join-btn:hover {
   cursor: pointer;
   color: #007cee;
-}
+} */
 
 @media screen and (max-width: 400px) {
   .login-headline {
@@ -445,9 +445,9 @@ input[type="checkbox"]:checked:hover {
     font-size: 34px;
   }
 
-  .login-btn-container {
+/*   .login-btn-container {
     gap: 8px;
-  }
+  } */
 
   button {
     height: 42px;
@@ -476,9 +476,9 @@ input[type="checkbox"]:checked:hover {
     width: 240px;
   }
 
-  .input-content {
+  /* .input-content {
     height: 16px;
-  }
+  } */
 
   ul {
     margin: 0;
@@ -541,7 +541,7 @@ input[type="checkbox"]:checked:hover {
     font-size: 17px;
   }
 
-  .input-content{
+/*   .input-content{
     height: 12px;
-  }
+  } */
 }

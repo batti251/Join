@@ -1,0 +1,123 @@
+button {
+  border-radius: 8px;
+  border-style: unset;
+}
+button:hover {
+  cursor: pointer;
+}
+button:disabled {
+  background-color: gray;
+}
+button:disabled:hover {
+  background-color: gray;
+  box-shadow: none;
+  cursor: default;
+}
+
+.btn-primary {
+  background-color: #2a3647;
+  height: 48px;
+  width: 15%;
+  color: #ffffff;
+  font-family: "Inter";
+  font-size: 21px;
+  font-weight: 700;
+}
+.btn-primary:hover {
+  background-color: #29abe2;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.btn-transparent {
+  height: 48px;
+  width: 177px;
+  color: #2a3647;
+  font-family: "Inter";
+  font-size: 21px;
+  font-weight: 700;
+  background-color: transparent;
+  border-color: #2a3647;
+  border-style: solid;
+}
+.btn-transparent:hover {
+  color: #29abe2;
+  border-color: #29abe2;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border-width: 2px;
+}
+.btn-transparent > span {
+  width: 129px;
+  height: 25px;
+}
+
+.input-container {
+  width: 100%;
+  min-height: 77.19px;
+  max-width: 422px;
+  gap: 8px;
+}
+.input-container > .input-content > input {
+  width: 100%;
+  border: 0;
+  font-size: 20px;
+}
+.input-container > .input-content > input:not(:placeholder-shown) ~ .pw-icon {
+  background-image: url("../../../assets/icons/visibility_off.svg");
+}
+.input-container:nth-of-type(4) {
+  height: 70px;
+}
+.input-container:focus-visible {
+  outline: none;
+}
+
+.input-checkbox > span {
+  gap: 10px;
+}
+
+.input-checkbox {
+  width: 231px;
+  height: 24px;
+}
+
+input[type=checkbox] {
+  background: url(/assets/icons/checkbox.svg) no-repeat;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+  padding: 0 0 0 0px;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  cursor: pointer;
+}
+
+input[type=checkbox]:hover {
+  background-color: #edf2fa;
+  border-radius: 43px;
+}
+
+input[type=checkbox]:checked {
+  background: url("../assets/icons/checkbox_checked.svg") no-repeat;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+  border: unset;
+  border-width: 2px;
+  padding: 0 0 0 0px;
+}
+
+input[type=checkbox]:checked:hover {
+  background-color: #edf2fa;
+  border-radius: 51px;
+}
+
+@keyframes easein {
+  100% {
+    top: 37px;
+    left: 38px;
+    transform: translate(0, 0);
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
