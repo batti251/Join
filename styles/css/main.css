@@ -52,38 +52,81 @@ button:disabled:hover {
   height: 25px;
 }
 
-.input-container {
-  width: 100%;
-  min-height: 77.19px;
-  max-width: 422px;
-  gap: 8px;
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
-.input-container > .input-content > input {
+form > .input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  height: auto;
+  width: 100%;
+  height: auto;
+  width: 100%;
+  min-height: 78.19px;
+  max-width: 90%;
+}
+form > .input-container:nth-of-type(5) {
+  min-height: 0;
+}
+form > .input-container:focus-visible {
+  outline: none;
+}
+form > .input-container > .input-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  height: 24px;
+  width: 100%;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d1d1d1;
+  padding: 12px 21px;
+  max-width: 100%;
+}
+form > .input-container > .input-content > input {
   width: 100%;
   border: 0;
   font-size: 20px;
 }
-.input-container > .input-content > input:not(:placeholder-shown) ~ .pw-icon {
-  background-image: url("../../../assets/icons/visibility_off.svg");
+form > .input-container > .input-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+  height: auto;
+  width: 100%;
 }
-.input-container:nth-of-type(4) {
-  height: 70px;
-}
-.input-container:focus-visible {
-  outline: none;
-}
-
-.input-checkbox > span {
+form > .input-container > .input-checkbox > span {
   gap: 10px;
 }
-
-.input-checkbox {
-  width: 231px;
-  height: 24px;
+form > .input-container > .input-checkbox > .accept-policy:hover {
+  text-decoration: underline;
+  text-decoration-style: solid;
+}
+form > .input-container > .login-error {
+  color: #ff8190;
+  font-family: "Inter";
+  font-size: 12px;
+  font-weight: 400;
+  height: 16px;
+  width: 100%;
+  margin: 2px 0;
+  position: relative;
 }
 
 input[type=checkbox] {
-  background: url(/assets/icons/checkbox.svg) no-repeat;
+  background: url("./../../../assets/icons/checkbox.svg") no-repeat;
   background-position: center;
   width: 24px;
   height: 24px;
@@ -93,14 +136,12 @@ input[type=checkbox] {
   margin: 0;
   cursor: pointer;
 }
-
 input[type=checkbox]:hover {
   background-color: #edf2fa;
   border-radius: 43px;
 }
-
 input[type=checkbox]:checked {
-  background: url("../assets/icons/checkbox_checked.svg") no-repeat;
+  background: url("./../../../assets/icons/checkbox_checked.svg") no-repeat;
   background-position: center;
   width: 24px;
   height: 24px;
@@ -108,12 +149,52 @@ input[type=checkbox]:checked {
   border-width: 2px;
   padding: 0 0 0 0px;
 }
-
 input[type=checkbox]:checked:hover {
   background-color: #edf2fa;
   border-radius: 51px;
 }
 
+@media screen and (max-width: 992px) {
+  .input-container {
+    max-height: 77.19px;
+    min-height: 10.19px;
+  }
+  .reset-join {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  form {
+    gap: 14px !important;
+  }
+  h1 {
+    font-size: 52px !important;
+  }
+  input {
+    font-size: 1rem !important;
+  }
+  .login-btn-container {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  .login-btn-container > .btn-primary,
+  .login-btn-container .btn-transparent {
+    max-width: 180px !important;
+  }
+  .input-checkbox {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .input-content {
+    height: 16px;
+  }
+}
+@media screen and (max-height: 700px) {
+  .input-content {
+    height: 12px;
+  }
+}
 @keyframes easein {
   100% {
     top: 37px;
@@ -232,52 +313,6 @@ body {
   border-right: unset;
   border-width: 3px;
 }
-.page > main > form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 20px;
-}
-.page > main > form > .input-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  gap: 8px;
-  min-height: 78.19px;
-  max-width: 90%;
-  height: auto;
-  width: 100%;
-}
-.page > main > form > .input-container > .input-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  gap: 10px;
-  height: 24px;
-  width: 100%;
-  border-radius: 10px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #d1d1d1;
-  padding: 12px 21px;
-  max-width: 100%;
-}
-.page > main > form > .input-container > .input-content input:not(:placeholder-shown) ~ .pw-icon {
-  background-image: url("../assets/icons/visibility_off.svg");
-}
-.page > main > form > .input-container > .login-error {
-  color: #ff8190;
-  font-family: "Inter";
-  font-size: 13px;
-  font-weight: 400;
-  height: 16px;
-  width: auto;
-  margin: 1px 0;
-  position: relative;
-}
 .page > main > .login-btn-container {
   display: flex;
   justify-content: center;
@@ -333,13 +368,6 @@ footer > .policy-notice-list > li > a:visited {
     width: 80% !important;
     padding: 20px !important;
   }
-  .input-container {
-    max-height: 77.19px;
-    min-height: 10.19px;
-  }
-  .reset-join {
-    display: none;
-  }
   .join-logo > img {
     height: 64px;
     width: 78px;
@@ -352,43 +380,22 @@ footer > .policy-notice-list > li > a:visited {
   main {
     gap: 24px !important;
   }
-  form {
-    gap: 8px !important;
-  }
-  h1 {
-    font-size: 52px !important;
-  }
-  .input-container {
-    max-width: 200px !important;
-  }
-  input {
-    font-size: 1rem !important;
-  }
-  .login-btn-container {
-    flex-direction: column !important;
-    gap: 16px !important;
-  }
-  .login-btn-container > .btn-primary,
-  .login-btn-container .btn-transparent {
-    max-width: 180px !important;
-  }
 }
 @media screen and (max-width: 400px) {
   .site-container {
     padding: 0 30px 0 0;
   }
-  .input-content {
-    height: 16px;
-  }
 }
 @media screen and (max-width: 380px) {
+  header {
+    padding: 12px !important;
+  }
+  .join-logo > img {
+    max-width: 48px !important;
+    max-height: 48px !important;
+  }
   main {
     max-height: 400px !important;
-  }
-}
-@media screen and (max-height: 700px) {
-  .input-content {
-    height: 12px;
   }
 }
 @media screen and (max-height: 439px) {
@@ -407,30 +414,45 @@ footer > .policy-notice-list > li > a:visited {
     color: #ffffff;
   }
 }
-/* SIGNUP - PAGE */
-/* .login-container > form {
-  position: relative;
+.page > .signup-container {
+  max-height: 580px;
 }
-
-.policy-notice-secondary {
-  height: 35px;
-  position: absolute;
-  bottom: 4%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.policy-notice-list {
-  list-style-type: none;
+.page > .login-container > .headline-signup-container {
   display: flex;
-  gap: 8px;
-} 
-
-
-.accept-policy:hover {
-  text-decoration: underline;
-  text-decoration-style: solid;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 0;
+  max-width: 680px;
+  height: auto;
+  width: 100%;
+}
+.page > .login-container > .headline-signup-container > .title > h1 {
+  font-family: "Inter";
+  font-size: 61px;
+  font-weight: 700;
+  color: black;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
-*/
+@media screen and (max-width: 380px) {
+  .signup-container {
+    max-height: 480px !important;
+  }
+  h1 {
+    font-size: 42px !important;
+  }
+  .form-signup > .input-container {
+    min-height: 64.19px !important;
+    gap: unset !important;
+    justify-content: unset !important;
+  }
+  .form-signup > .input-container > .login-error {
+    font-size: 11px !important;
+    height: 6px !important;
+    margin: unset !important;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */

@@ -12,7 +12,7 @@ function guestLogin() {
  *
  */
 function signupPage() {
-  location.href = "html/signup.html";
+  location.href = "./signup.html";
 }
 
 /**
@@ -22,7 +22,7 @@ function signupPage() {
 function checkInput() {
   let checkbox = document.getElementById("accept-policy");
   let requiredInputs = document.querySelectorAll("input");
-  let button = document.querySelector(".signup-btn");
+  let button = document.querySelector(".btn-primary");
   if (
     [...requiredInputs].every((input) => input.value !== "") &&
     checkbox.checked
@@ -63,10 +63,10 @@ function showPassword(x) {
   let password = x.previousElementSibling;
   if (password.type === "password" && password.value.length > 0) {
     password.type = "text";
-    x.setAttribute("class", "pw-icon-on");
+    x.src = '/assets/icons/visibility_on.svg' 
   } else {
     password.type = "password";
-    x.setAttribute("class", "pw-icon");
+    x.src = '/assets/icons/visibility_off.svg' 
   }
 }
 

@@ -81,33 +81,6 @@ body {
       }
     }
 
-    > form {
-      @include dFlex($g: 20px);
-      > .input-container {
-        @include dFlex($jc: space-between, $g: 8px);
-        min-height: 78.19px;
-        max-width: 90%;
-        @include size($w: 100%);
-        > .input-content {
-          @include dFlex($fd: row, $g: 10px);
-          @include size($h: 24px, $w: 100%);
-          @include inputBorder();
-          @include padding($p: 12px 21px);
-          max-width: 100%;
-          & input:not(:placeholder-shown) ~ .pw-icon {
-            background-image: url("../assets/icons/visibility_off.svg");
-          }
-        }
-        > .login-error {
-          @include text($c: #ff8190);
-          @include font($fs: 13px, $fw: 400);
-          @include size($h: 16px);
-          margin: 1px 0;
-          position: relative;
-        }
-      }
-    }
-
     > .login-btn-container {
       @include dFlex($fd: row);
       width: 100%;
@@ -165,15 +138,6 @@ footer {
     padding: 20px !important;
   }
 
-  .input-container {
-    max-height: 77.19px;
-    min-height: 10.19px;
-  }
-
-  .reset-join {
-    display: none;
-  }
-
   .join-logo > img {
     height: 64px;
     width: 78px;
@@ -188,30 +152,6 @@ footer {
   main {
     gap: 24px !important;
   }
-
-  form {
-    gap: 8px !important;
-  }
-
-  h1 {
-    font-size: 52px !important;
-  }
-
-  .input-container {
-    max-width: 200px !important;
-  }
-  input {
-    font-size: 1rem !important;
-  }
-
-  .login-btn-container {
-    flex-direction: column !important;
-    gap: 16px !important;
-    > .btn-primary,
-    .btn-transparent {
-      max-width: 180px !important;
-    }
-  }
 }
 
 @media screen and (max-width: 400px) {
@@ -219,21 +159,25 @@ footer {
     padding: 0 30px 0 0;
   }
 
-  .input-content {
-    height: 16px;
-  }
 }
 
 @media screen and (max-width: 380px) {
+  
+  header {
+    padding: 12px !important;
+  }
+
+  .join-logo {
+    > img {
+      max-width: 48px !important;
+      max-height: 48px !important;
+    }
+  }
+  
   main {
     max-height: 400px !important;
   }
-}
 
-@media screen and (max-height: 700px) {
-  .input-content {
-    height: 12px;
-  }
 }
 
 @media screen and (max-height: 439px) {
@@ -252,29 +196,3 @@ footer {
     color: #ffffff;
   }
 }
-
-/* SIGNUP - PAGE */
-/* .login-container > form {
-  position: relative;
-}
-
-.policy-notice-secondary {
-  height: 35px;
-  position: absolute;
-  bottom: 4%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.policy-notice-list {
-  list-style-type: none;
-  display: flex;
-  gap: 8px;
-} 
-  
-
-.accept-policy:hover {
-  text-decoration: underline;
-  text-decoration-style: solid;
-}
-  
-*/
