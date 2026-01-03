@@ -17,7 +17,8 @@ button:disabled:hover {
 .btn-primary {
   background-color: #2a3647;
   height: 48px;
-  width: 15%;
+  width: 100%;
+  max-width: 110px;
   color: #ffffff;
   font-family: "Inter";
   font-size: 21px;
@@ -30,7 +31,8 @@ button:disabled:hover {
 
 .btn-transparent {
   height: 48px;
-  width: 177px;
+  width: 100%;
+  max-width: 177px;
   color: #2a3647;
   font-family: "Inter";
   font-size: 21px;
@@ -125,14 +127,22 @@ body {
 
 .page {
   display: grid;
-  grid-template-columns: 200px calc(100% - 400px) 200px;
-  grid-template-rows: 100px calc(100dvh - 100px - 10%) 10%;
-  grid-template-areas: "aside header header" "aside main main" "footer footer footer";
+  grid-template-columns: 100%;
+  grid-template-rows: 10% calc(100dvh - 20%) 10%;
+  grid-template-areas: "header" "main" "footer";
   height: 100vh;
+  max-width: 1920px;
+  margin-inline: auto;
 }
 .page > header {
   grid-area: header;
-  padding: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 0;
+  padding: 24px;
+  height: 100%;
 }
 .page > header > .site-container {
   display: flex;
@@ -162,18 +172,14 @@ body {
   width: 91px;
   font-size: 16px;
 }
-.page > aside {
-  grid-area: aside;
-}
-.page > aside > .join-logo {
-  position: absolute;
-  top: 50%;
-  right: unset;
-  bottom: unset;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: easein 2s forwards;
+.page > header > aside > .join-logo > img {
+  position: relative;
+  animation: easein 2s ease-in;
+  height: 100%;
+  width: 100%;
   z-index: 2;
+  max-width: 80px;
+  max-height: 80px;
 }
 .page > main {
   grid-area: main;
@@ -192,7 +198,7 @@ body {
   transform: translate(-50%, -50%);
   padding: 48px 115px;
   max-width: 652px;
-  max-height: 60%;
+  max-height: 480px;
   border-radius: 30px;
   background-color: #ffffff;
   animation: hide 2s forwards;
@@ -216,9 +222,6 @@ body {
   color: black;
   margin-block-start: 0;
   margin-block-end: 0;
-  /*         width: 100%;
-  height: 73px;
-  gap: 16px; */
 }
 .page > main > .headline-container > .headline-underline {
   width: 150px;
@@ -243,7 +246,9 @@ body {
   flex-direction: column;
   gap: 8px;
   min-height: 78.19px;
-  max-width: 422px;
+  max-width: 90%;
+  height: auto;
+  width: 100%;
 }
 .page > main > form > .input-container > .input-content {
   display: flex;
@@ -303,10 +308,30 @@ footer > .policy-notice-list {
   font-weight: 400;
   color: #a8a8a8;
 }
+footer > .policy-notice-list > li {
+  min-width: 109px;
+}
+footer > .policy-notice-list > li > a:hover {
+  color: #29abe2;
+  font-weight: 600;
+  font-style: bold;
+}
+footer > .policy-notice-list > li > a:visited {
+  color: #a8a8a8;
+}
+
+.background-fade {
+  height: 100%;
+  width: 100%;
+  background-color: #f6f7f8;
+  position: absolute;
+  animation: backgroundFade 2s ease-in-out;
+}
 
 @media screen and (max-width: 992px) {
   main {
-    width: 322px;
+    width: 80% !important;
+    padding: 20px !important;
   }
   .input-container {
     max-height: 77.19px;
@@ -324,81 +349,46 @@ footer > .policy-notice-list {
   .text-to-signup {
     display: none;
   }
-}
-@media screen and (max-width: 480px) and (max-width: 400px) {
-  .site-container {
-    padding: 0 30px 0 0;
+  main {
+    gap: 24px !important;
   }
-  .btn-primary {
-    width: 70px !important;
-    height: 30px !important;
+  form {
+    gap: 8px !important;
+  }
+  h1 {
+    font-size: 52px !important;
+  }
+  .input-container {
+    max-width: 200px !important;
+  }
+  input {
+    font-size: 1rem !important;
   }
   .login-btn-container {
-    gap: 8px;
+    flex-direction: column !important;
+    gap: 16px !important;
   }
-  .login-btn-container > button {
-    height: 34px;
-    width: 110px;
+  .login-btn-container > .btn-primary,
+  .login-btn-container .btn-transparent {
+    max-width: 180px !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  .site-container {
+    padding: 0 30px 0 0;
   }
   .input-content {
     height: 16px;
   }
 }
-@media screen and (max-width: 480px) and (max-height: 700px) {
-  .input-content {
-    height: 12px;
+@media screen and (max-width: 380px) {
+  main {
+    max-height: 400px !important;
   }
 }
-@media (max-width: 480px) {
-  /*  */
-  li > a:visited {
-    color: #a8a8a8;
-  }
-  li > a:hover {
-    color: #29abe2;
-    font-weight: 600;
-    font-style: bold;
-  }
-  .accept-policy:hover {
-    text-decoration: underline;
-    text-decoration-style: solid;
-  }
-  .login-button-wrap {
-    flex-direction: column-reverse;
-    gap: 16px;
-  }
-  li {
-    min-width: 109px;
-  }
-  .background-fade {
-    height: 100%;
-    width: 100%;
-    background-color: #f6f7f8;
-    position: absolute;
-    animation: backgroundFade 2s ease-in-out;
-  }
-  /*  .join-logo-index {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: easein 2s forwards;
-    z-index: 2;
-  } */
-  .login-container > form {
-    position: relative;
-  }
-  .policy-notice-secondary {
-    height: 35px;
-    position: absolute;
-    bottom: 4%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .policy-notice-list {
-    list-style-type: none;
-    display: flex;
-    gap: 8px;
+@media screen and (max-height: 700px) {
+  .input-content {
+    height: 12px;
   }
 }
 @media screen and (max-height: 439px) {
@@ -417,5 +407,30 @@ footer > .policy-notice-list {
     color: #ffffff;
   }
 }
+/* SIGNUP - PAGE */
+/* .login-container > form {
+  position: relative;
+}
+
+.policy-notice-secondary {
+  height: 35px;
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.policy-notice-list {
+  list-style-type: none;
+  display: flex;
+  gap: 8px;
+} 
+
+
+.accept-policy:hover {
+  text-decoration: underline;
+  text-decoration-style: solid;
+}
+
+*/
 
 /*# sourceMappingURL=main.css.map */

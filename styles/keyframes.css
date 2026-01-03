@@ -71,10 +71,21 @@
 }
 
 @keyframes easein {
-  100% {
-    top: 80px;
-    left: 77px;
+  0% {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  50% {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+  }
+
+  100% {
+    position: relative;
   }
 }
 
