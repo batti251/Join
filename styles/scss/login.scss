@@ -88,6 +88,7 @@ main {
   @include dFlex($fd: row, $g: 8px);
   @include font();
   margin-block-start: 0.5rem;
+  @include size($h:100%);
   > li {
     min-width: 109px;
 
