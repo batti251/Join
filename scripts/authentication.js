@@ -4,7 +4,7 @@
  */
 function guestLogin() {
   saveSession("Gast");
-  location.href = "html/summary.html";
+  location.href = "summary.html";
 }
 
 /**
