@@ -80,7 +80,7 @@ function userGreeting(){
 async function checkAnimation() {
     const alreadyShown = sessionStorage.getItem('greetingShown');
     const screenWidth = window.innerWidth
-    let greetContainer = document.getElementsByClassName('greeting')
+    let greetContainer = document.getElementsByClassName('greeting-container')
     if (screenWidth > 1440){
     sessionStorage.setItem('greetingShown', 'true');
     }  else if (screenWidth < 1440 && !alreadyShown){ 
@@ -97,7 +97,7 @@ async function checkAnimation() {
  * 
  */
 async function showGreetingAnimation() {
-    let greetingDiv = document.querySelector('.greeting')
+    let greetingDiv = document.querySelector('.greeting-container')
     greetingDiv.classList.add('greet-animation')
 }
 
