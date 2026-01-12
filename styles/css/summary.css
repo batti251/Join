@@ -113,6 +113,12 @@ h1 {
   background-image: url("./../../assets/icons/check_hover.svg");
 }
 
+.ai {
+  background: linear-gradient(to top, #8933fc, #29abe2);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .large-card {
   display: flex;
   justify-content: center;
@@ -350,6 +356,9 @@ h1 {
     width: 70px;
     margin: 8px 0px;
     rotate: unset;
+  }
+  .join-logo {
+    display: none;
   }
   .cards-wrapper {
     width: 100%;

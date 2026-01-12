@@ -77,6 +77,12 @@ h1 {
   }
 }
 
+.ai {
+  background: linear-gradient(to top, #8933fc, #29abe2);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .large-card {
   @include dFlex($fd: row);
   flex: 2;
@@ -263,6 +269,10 @@ h1 {
     }
   }
 
+  .join-logo {
+    display: none;
+  }
+
   .cards-wrapper {
     width: 100%;
     padding: 0 16px;
@@ -293,11 +303,9 @@ h1 {
     padding: 16px;
   }
 
-  
   .card {
     height: 130px;
   }
-
 
   #deadline-date {
     font-size: 16px;
@@ -349,7 +357,7 @@ h1 {
 }
 
 @media screen and (max-height: 768px) {
-  .summary{
+  .summary {
     gap: 20px;
   }
 }
@@ -372,7 +380,6 @@ h1 {
   }
 }
 
-
 @media screen and (max-height: 668px) {
   .metrics-header {
     margin: unset;
@@ -390,11 +397,11 @@ h1 {
     margin: 16px 8px 0 8px;
   }
 
-  .count-figure{
+  .count-figure {
     font-size: 42px;
   }
 
-  .card-title{
+  .card-title {
     font-size: 17px;
   }
 }
