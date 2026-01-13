@@ -321,24 +321,6 @@ textarea {
   animation: 0.25s animateBgUnblur linear;
 }
 
-.toast-msg {
-  position: fixed;
-  top: 75%;
-  left: 50%;
-  transform: translate(300%, -50%);
-  opacity: 0;
-  color: white;
-  background-color: #2a3647;
-  border-radius: 20px;
-  padding: 20px;
-  pointer-events: none;
-  z-index: 100;
-}
-
-.toast-msg.show {
-  animation: toast-fly-in-out 3s linear;
-  opacity: 1 !important;
-}
 
 .index-1 {
   z-index: -1 !important;

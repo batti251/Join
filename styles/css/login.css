@@ -17,7 +17,7 @@ body {
   right: unset;
   bottom: unset;
   left: 10%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   height: 100%;
   width: 100%;
   z-index: 2;
@@ -117,7 +117,7 @@ main {
   right: unset;
   bottom: unset;
   left: 50%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   padding: 48px 115px;
   max-width: 652px;
   max-height: 480px;

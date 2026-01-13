@@ -1,9 +1,48 @@
+@use './index.scss' as *;
+
 h1 {
   margin: 0;
+  @include font($fs: 61px, $fw: 700);
+}
+
+
+.add-task-container{
+  @include dFlex($ai: flex-start, $g: 48px);
+  @include padding($p: 60px 96px 0 96px);
 }
 
 .add-task-form-input {
   gap: 48px;
+}
+
+.toast-msg {
+  @include position($p: fixed, $t: 75%, $l: 50%);
+  @include padding($p: 20px);
+  @include font($fs: 20px);
+  transform: translate(300%, -50%);
+  color: white;
+  background-color: #2a3647;
+  opacity: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 100;
+
+  > .toast-msg-spans{
+    @include dFlex($fd: unset, $jc: space-between, $g: 32px);
+  }
+}
+
+.toast-msg.show {
+  animation: toast-fly-in-out 3s linear;
+  opacity: 1 !important;
+}
+
+.add-task-toast-icon {
+  @include size($w: 25px, $h: 30px);
+  background-image: url("../assets/icons/add-task-toast-icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .separator {
@@ -323,14 +362,7 @@ h1 {
   cursor: pointer;
 }
 
-.add-task-toast-icon {
-  width: 25px;
-  height: 30px;
-  background-image: url("../assets/icons/add-task-toast-icon.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
+
 
 @media screen and (max-width: 1200px) {
   .form-sub-wraps {
