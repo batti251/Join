@@ -1,0 +1,21 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixin" as *;
+
+
+.profile-wrap{
+    position: relative;
+    @include dFlex($ai: unset, $fd: unset, $jc: unset, $g: 8px)
+}
+
+.profile-badge {
+  height: 42px;
+  min-width: 42px;
+  border-radius: 45px;
+  color: white;
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 400;
+}
