@@ -1,6 +1,6 @@
 function getSubtaskListTemplate(indexSubtask) {
   return `
-        <li id="task-subtask-${indexSubtask}" class="p-relative font-Inter-400-13px subtask-list-element d-flex-row-c-fs gap-8px">
+        <li id="task-subtask-${indexSubtask}" class="p-relative subtask-list-element">
             <div>&#x2022;</div>
             ${newTaskSubtasks[indexSubtask].name}
             <div class=" p-absolute d-flex-row-c-c gap-4px task-subtask-control-icon-wrap">

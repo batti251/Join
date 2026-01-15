@@ -135,14 +135,15 @@ h1 {
 }
 
 .subtask-list-element {
+  @include dFlex($jc: flex-start, $fd: unset, $g: 8px);
+   @include font($fs: 13px);
+   @include padding(8px);
+   @include size($w: 100%);
   list-style-position: inside;
   border-radius: 10px;
-  padding: 8px 8px;
-  width: 100%;
-}
-
-.subtask-list-element:hover {
+  &:hover {
   background-color: #d1d1d1;
+}
 }
 
 .subtask-list-element:hover .edit-subtask {
@@ -162,8 +163,7 @@ h1 {
 }
 
 .task-edit-subtask-icon {
-  height: 13px;
-  width: 13px;
+  @include size($h: 13px, $w: 13px);
   background-image: url("./../../assets/icons/edit.svg");
   background-size: contain;
 }
@@ -173,8 +173,7 @@ h1 {
 }
 
 .task-delete-subtask-icon {
-  height: 13px;
-  width: 13px;
+  @include size($h: 13px, $w: 13px);
   background-image: url("./../../assets/icons/delete.svg");
   background-size: contain;
 }
@@ -185,12 +184,11 @@ h1 {
 
 .task-assigned-contacts-checkbox-icon {
   display: block;
+  @include size($h: 20px, $w: 20px);
   background-image: url("./../../assets/icons/checkbox.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 20px;
-  height: 20px;
 }
 
 .focus .task-assigned-contacts-checkbox-icon {
@@ -216,10 +214,6 @@ h1 {
     overflow-y: scroll;
   }
 
-  .pd-lr-96px {
-    padding: 24px 24px 40px 24px;
-  }
-
   .task-input-text-field {
     max-width: 100%;
   }
@@ -233,6 +227,11 @@ h1 {
 }
 
 @media screen and (max-width: 820px) {
+
+  .join-logo{
+    display: none;
+  }
+
   .font-Inter-700-61px {
     font-size: 47px;
   }
@@ -248,4 +247,11 @@ h1 {
     gap: 16px;
     height: 90px;
   }
+}
+
+
+@media screen and (max-width: 720px) {
+.add-task-container {
+  @include padding($p: 24px 12px 24px 12px);
+}
 }

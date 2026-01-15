@@ -104,24 +104,24 @@ button:disabled:hover {
   width: 20px;
 }
 
-.active-urgent {
-  color: white;
-  font-weight: 700;
-  background-color: #ff3a00;
-}
-
 .urgent-icon {
   background-image: url("./../../../assets/icons/urgent.svg");
 }
 
 .medium-icon {
-  background-image: url("./../../../assets/icons/medium_white.svg");
+  background-image: url("./../../../assets/icons/medium.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .low-icon {
   background-image: url("./../../../assets/icons/low.svg");
+}
+
+.active-urgent {
+  color: white;
+  font-weight: 700;
+  background-color: #ff3a00;
 }
 
 .active-medium {

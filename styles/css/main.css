@@ -122,24 +122,24 @@ button:disabled:hover {
   width: 20px;
 }
 
-.active-urgent {
-  color: white;
-  font-weight: 700;
-  background-color: #ff3a00;
-}
-
 .urgent-icon {
   background-image: url("./../../../assets/icons/urgent.svg");
 }
 
 .medium-icon {
-  background-image: url("./../../../assets/icons/medium_white.svg");
+  background-image: url("./../../../assets/icons/medium.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .low-icon {
   background-image: url("./../../../assets/icons/low.svg");
+}
+
+.active-urgent {
+  color: white;
+  font-weight: 700;
+  background-color: #ff3a00;
 }
 
 .active-medium {
@@ -378,6 +378,13 @@ input[type=checkbox]:checked:hover {
 }
 form {
   max-width: 976px;
+  height: auto;
+  width: 100%;
+}
+
+#add-task-form-wrap {
+  height: auto;
+  width: 100%;
 }
 
 .form-sub-wraps {
@@ -386,6 +393,8 @@ form {
   align-items: unset;
   flex-direction: row;
   gap: 48px;
+  height: auto;
+  width: 100%;
 }
 
 .task-main {
@@ -507,6 +516,11 @@ form {
   }
   .btn-priority {
     padding: 10px 2px;
+  }
+}
+@media screen and (max-width: 620px) {
+  .overlay-priority {
+    flex-direction: column;
   }
 }
 .task-dropdown-icon {
