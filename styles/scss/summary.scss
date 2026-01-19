@@ -164,6 +164,7 @@ h1 {
 
 .greeting-container {
   @include dFlex();
+  z-index: 1;
 }
 
 .greeting-wrap {

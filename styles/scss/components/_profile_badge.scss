@@ -26,6 +26,8 @@
 }
 
 .task-badge {
+  display: flex;
+  margin-left: 8px;
   max-width: 190px;
 }
 
@@ -36,4 +38,10 @@
 
 .assigned-user{
   @include font($ff: "OpenSans" , $fs: 1rem);
+}
+
+.assigned-user-remainder{
+  @include dFlex($fd: row);
+  @include font($fs: 20px);
+  color: $color-primary;
 }

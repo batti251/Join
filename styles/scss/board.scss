@@ -1,7 +1,6 @@
 @use "abstracts/variables" as *;
 @use "abstracts/mixin" as *;
 
-
 main {
   overflow: clip;
 }
@@ -51,22 +50,19 @@ main {
 }
 
 .search-icon {
-  background-image: url("../assets/icons/search.svg");
+  background-image: url("./../../assets/icons/search.svg");
   background-color: unset;
   background-size: cover;
-  width: 18px;
-  height: 18px;
+  @include size($w: 18px, $h: 18px);
 }
 
 .search-icon:active {
-  background-image: url("../assets/icons/search_click.svg");
-  width: 32px;
-  height: 32px;
+  background-image: url("./../../assets/icons/search_click.svg");
+  @include size($w: 32px, $h: 32px);
 }
 
 .search-icon-div {
-  height: 32px;
-  width: 32px;
+  @include size($w: 32px, $h: 32px);
 }
 
 .search-icon-wrap {
@@ -104,15 +100,14 @@ main {
 }
 
 .add-btn {
-  background-image: url("../assets/icons/add.svg");
+  background-image: url("./../../assets/icons/add.svg");
   background-color: unset;
   background-size: cover;
-  height: 24px;
-  width: 24px;
+  @include size($w: 24px, $h: 24px);
 }
 
 .add-btn:hover {
-  background-image: url("../assets/icons/add_press.svg");
+  background-image: url("./../../assets/icons/add_press.svg");
   border-color: #29abe2;
 }
 
@@ -128,8 +123,7 @@ main {
 
 .col-content-wrap {
   max-width: 246px;
-  width: 100%;
-  height: 100%;
+  @include size($w: 100%, $h: 100%);
 }
 
 .add-task-btn {
@@ -152,21 +146,19 @@ main {
 }
 
 .add-taks-btn-icon {
-  width: 19px;
-  height: 19px;
+  @include dFlex($fd: row);
+  @include size($h: 19px, $w: 19px);
 }
 
 .board-col {
-  height: 100%;
-  width: 252px;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 24px;
+  @include size($h: 100%, $w: 252px);
+  @include dFlex($ai: flex-start, $jc: unset, $g: 24px);
 }
 
 .no-task-feedback {
-  height: 48px;
+  @include font($ff: OpenSans, $fs: 1rem);
+  @include dFlex($fd: row);
+  @include size($h: 48px);
   border-radius: 10px;
   background-color: #e7e7e7;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
@@ -177,6 +169,7 @@ main {
 
 .task-card-wrap {
   border-radius: 24px;
+  background-color: #ffffff;
   flex-direction: column;
   gap: 10px;
   color: #ffffff;
@@ -189,9 +182,8 @@ main {
 }
 
 .col-empty-wrap:last-of-type {
-  width: 246px;
+  @include size($h: 244px, $w: 246px);
   scrollbar-width: none;
-  height: 244px;
   border: 1px;
   border-style: dashed;
   border-color: #a8a8a8;
@@ -199,11 +191,12 @@ main {
 }
 
 .task-card {
-  gap: 24px;
-  flex-direction: column;
+  @include dFlex($g: 24px, $ai: unset, $jc: unset);
+  @include size($h: 240px);
+  min-width: 180px;
+  max-width: 210px;
   padding: 16px;
-  min-width: 210px;
-  height: 240px;
+  flex: 1;
 }
 
 .task-category {
@@ -215,21 +208,33 @@ main {
 }
 
 .task-description-wrap {
+  @include dFlex($g: 8px, $ai: unset, $jc: unset);
   border-radius: 10px;
-  gap: 8px;
-  flex-direction: column;
   overflow-x: clip;
 }
 
 .task-headline {
+  @include font($fs: 1rem, $fw: 700);
   color: #2a3647;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .task-description {
+  @include font($fs: 1rem);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #a8a8a8;
+}
+
+[id^="subtasks-progress-"] {
+  @include dFlex($g: 8px, $ai: unset, $jc: space-between);
+}
+
+.task-priority-wrap {
+  @include dFlex($g: 8px, $fd: row, $ai: center, $jc: space-between);
 }
 
 .progress-bar-wrap {
@@ -237,8 +242,7 @@ main {
 }
 
 .progress-bar {
-  width: 128px;
-  height: 8px;
+  @include size($w: 128px, $h: 8px);
   border-radius: 8px;
   background-color: #f4f4f4;
 }
@@ -249,19 +253,18 @@ main {
   background-color: #4589ff;
 }
 
-
+.progress-text {
+  display: flex;
+  @include font($fs: 12px);
+  color: black;
+}
 
 .no-task-found {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  @include position($p: absolute, $t: 50%, $l: 50%);
 }
 
 .title-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row-reverse;
+  @include dFlex($fd: row-reverse, $jc: space-between);
 }
 
 @media screen and (max-width: 1360px) {
@@ -289,8 +292,7 @@ main {
   }
 
   .no-task-feedback {
-    height: 272px;
-    width: 100px;
+    @include size($h: 272px, $w: 100px);
   }
 
   .task-card {
@@ -320,8 +322,7 @@ main {
     background-color: unset;
     background-position: center;
     background-repeat: no-repeat;
-    height: 40px;
-    width: 40px;
+    @include size($h: 40px, $w: 40px);
   }
 
   .add-task-btn-mobile:hover {

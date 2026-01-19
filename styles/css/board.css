@@ -47,17 +47,17 @@ main {
 }
 
 .search-icon {
-  background-image: url("../assets/icons/search.svg");
+  background-image: url("./../../assets/icons/search.svg");
   background-color: unset;
   background-size: cover;
-  width: 18px;
   height: 18px;
+  width: 18px;
 }
 
 .search-icon:active {
-  background-image: url("../assets/icons/search_click.svg");
-  width: 32px;
+  background-image: url("./../../assets/icons/search_click.svg");
   height: 32px;
+  width: 32px;
 }
 
 .search-icon-div {
@@ -100,7 +100,7 @@ main {
 }
 
 .add-btn {
-  background-image: url("../assets/icons/add.svg");
+  background-image: url("./../../assets/icons/add.svg");
   background-color: unset;
   background-size: cover;
   height: 24px;
@@ -108,7 +108,7 @@ main {
 }
 
 .add-btn:hover {
-  background-image: url("../assets/icons/add_press.svg");
+  background-image: url("./../../assets/icons/add_press.svg");
   border-color: #29abe2;
 }
 
@@ -124,8 +124,8 @@ main {
 
 .col-content-wrap {
   max-width: 246px;
-  width: 100%;
   height: 100%;
+  width: 100%;
 }
 
 .add-task-btn {
@@ -148,21 +148,37 @@ main {
 }
 
 .add-taks-btn-icon {
-  width: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0;
   height: 19px;
+  width: 19px;
 }
 
 .board-col {
   height: 100%;
   width: 252px;
   display: flex;
+  justify-content: unset;
   align-items: flex-start;
   flex-direction: column;
   gap: 24px;
 }
 
 .no-task-feedback {
+  font-family: OpenSans;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 120%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0;
   height: 48px;
+  width: auto;
   border-radius: 10px;
   background-color: #e7e7e7;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
@@ -173,6 +189,7 @@ main {
 
 .task-card-wrap {
   border-radius: 24px;
+  background-color: #ffffff;
   flex-direction: column;
   gap: 10px;
   color: #ffffff;
@@ -185,9 +202,9 @@ main {
 }
 
 .col-empty-wrap:last-of-type {
+  height: 244px;
   width: 246px;
   scrollbar-width: none;
-  height: 244px;
   border: 1px;
   border-style: dashed;
   border-color: #a8a8a8;
@@ -195,11 +212,17 @@ main {
 }
 
 .task-card {
-  gap: 24px;
+  display: flex;
+  justify-content: unset;
+  align-items: unset;
   flex-direction: column;
-  padding: 16px;
-  min-width: 210px;
+  gap: 24px;
   height: 240px;
+  width: auto;
+  min-width: 180px;
+  max-width: 210px;
+  padding: 16px;
+  flex: 1;
 }
 
 .task-category {
@@ -218,21 +241,51 @@ main {
 }
 
 .task-description-wrap {
-  border-radius: 10px;
-  gap: 8px;
+  display: flex;
+  justify-content: unset;
+  align-items: unset;
   flex-direction: column;
+  gap: 8px;
+  border-radius: 10px;
   overflow-x: clip;
 }
 
 .task-headline {
+  font-family: "Inter";
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 120%;
   color: #2a3647;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .task-description {
+  font-family: "Inter";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 120%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #a8a8a8;
+}
+
+[id^=subtasks-progress-] {
+  display: flex;
+  justify-content: space-between;
+  align-items: unset;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-priority-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
 }
 
 .progress-bar-wrap {
@@ -240,8 +293,8 @@ main {
 }
 
 .progress-bar {
-  width: 128px;
   height: 8px;
+  width: 128px;
   border-radius: 8px;
   background-color: #f4f4f4;
 }
@@ -252,17 +305,30 @@ main {
   background-color: #4589ff;
 }
 
+.progress-text {
+  display: flex;
+  font-family: "Inter";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 120%;
+  color: black;
+}
+
 .no-task-found {
   position: absolute;
   top: 50%;
+  right: unset;
+  bottom: unset;
   left: 50%;
+  /* transform: translate(-50%, -50%); */
 }
 
 .title-wrap {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   flex-direction: row-reverse;
+  gap: 0;
 }
 
 @media screen and (max-width: 1360px) {

@@ -62,7 +62,7 @@ async function submitInitialTasks() {
     "put here Description",
     "2025-12-12",
     "low",
-    "todo",
+    "triage",
     "First Test Task",
     [{ Id: contactsObj[1][0], name: contactsObj[1][1].name }],
     [

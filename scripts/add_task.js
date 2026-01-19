@@ -9,7 +9,7 @@ let currentDate = getCurrentDateYYYMMDD();
 async function addTaskInit() {
   contactsArray = await getSortedContactsArray();
   tasksArray = await getTasksArray();
-  renderAddTaskForm("add-task-form-wrap", "todo");
+  renderAddTaskForm("add-task-form-wrap", "triage");
 }
 
 /**

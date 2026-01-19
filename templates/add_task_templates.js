@@ -65,7 +65,7 @@ function getTaskAssigendContactsOverlayTemplate(contactID, indexContact) {
 
 function getTaskAssignedContactBadgeTemplate(contactID, indexContact) {
   return `
-    <div class="profile-badge font-Inter-400-12px d-flex-row-c-c text-color-white ${getContactColorClassNameByFirebaseId(
+    <div class="profile-badge ${getContactColorClassNameByFirebaseId(
       contactID
     )}">
         ${getFirstTwoStringInitialsByFirebaseId(contactID)}
@@ -75,7 +75,7 @@ function getTaskAssignedContactBadgeTemplate(contactID, indexContact) {
 
 function getTaskAssignedContactsRemainderTemplate(numberRemainder) {
   return `
-  <div class="font-Inter-400-20px d-flex-row-c-c text-color-2A3647">
+  <div class="assigned-user-remainder">
     +${numberRemainder}
   </div>
   `;

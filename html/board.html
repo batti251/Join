@@ -52,7 +52,7 @@
             <div class="board-headline-text">Board</div>
             <button
               class="d-none add-task-btn-mobile"
-              onclick="openAddTaskOverlay('todo')"
+              onclick="openAddTaskOverlay('triage')"
             ></button>
           </div>
           <div class="board-search-add-task-wrap">
@@ -70,7 +70,7 @@
                 </div>
               </div>
             </div>
-            <button class="add-task-btn" onclick="openAddTaskOverlay('todo')">
+            <button class="add-task-btn" onclick="openAddTaskOverlay('triage')">
               <span class="add-task-btn-text">Add task</span>
               <div class="d-flex-row-c-c">
                 <img
@@ -84,14 +84,29 @@
         </div>
 
         <div class="board-col-wrap">
+
+         <div class="col-content-wrap">
+            <div class="col-title-wrap mg-b-16px">
+              <div class="col-title">Triage</div>
+            </div>
+            <div
+              class="col-content"
+              ondrop="moveTask(event)"
+              ondragover="allowDrop(event)"
+              id="triage"
+            >
+              <div
+                class="no-task-feedback font-OpenSans-400-16px d-flex-row-c-c"
+              >
+                No tasks To do
+              </div>
+            </div>
+          </div>
+
+
           <div class="col-content-wrap">
             <div class="col-title-wrap mg-b-16px">
               <div class="col-title">To do</div>
-              <button
-                class="add-btn"
-                alt="add button"
-                onclick="openAddTaskOverlay('todo')"
-              ></button>
             </div>
             <div
               class="col-content"
@@ -110,11 +125,6 @@
           <div class="col-content-wrap">
             <div class="col-title-wrap mg-b-16px">
               <div class="col-title">In progress</div>
-              <button
-                class="add-btn"
-                alt="add button"
-                onclick="openAddTaskOverlay('inprogress')"
-              ></button>
             </div>
             <div
               class="col-content"
@@ -133,11 +143,6 @@
           <div class="col-content-wrap">
             <div class="col-title-wrap mg-b-16px">
               <div class="col-title">Await feedback</div>
-              <button
-                class="add-btn"
-                alt="add button"
-                onclick="openAddTaskOverlay('awaitfeedback')"
-              ></button>
             </div>
             <div
               class="col-content"

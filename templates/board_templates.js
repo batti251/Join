@@ -1,25 +1,25 @@
 function getBoardCardTemplate(indexTask) {
   return `
-    <div class="task-card-wrap bg-white" draggable="true" ondragstart="startDragging(${indexTask})">
-          <div class="task-card d-flex-column" onclick="showTaskOverlay(${indexTask})">
+    <div class="task-card-wrap" draggable="true" ondragstart="startDragging(${indexTask})">
+          <div class="task-card" onclick="showTaskOverlay(${indexTask})">
             <div>
-              <div class="task-category font-Inter-400-16px ${getTaskCategoryClass(
+              <div class="task-category ${getTaskCategoryClass(
                 tasksArray[indexTask][1].category
               )} ">${getCategoryNameTemplate(
     tasksArray[indexTask][1].category
   )}</div>
             </div>
-            <div class="task-description-wrap d-flex">
-                <div class="task-headline font-Inter-700-16px">${
+            <div class="task-description-wrap">
+                <div class="task-headline">${
                   tasksArray[indexTask][1].title
                 }</div>
-                <div class="task-description font-Inter-400-16px">${
+                <div class="task-description">${
                   tasksArray[indexTask][1]?.description || ""
                 }</div>   
             </div>
-            <div class="d-flex-c-sb gap-8px" id="subtasks-progress-${indexTask}"></div>
-            <div class="d-flex-c-sb task-priority-wrap">
-                    <div class="d-flex mg-l-8px task-badge" id="task-contacts-${indexTask}">
+            <div class="" id="subtasks-progress-${indexTask}"></div>
+            <div class="task-priority-wrap">
+                    <div class="task-badge" id="task-contacts-${indexTask}">
                     </div>
                     <img src=${getTaskPriorityIconSrc(
                       tasksArray[indexTask][1].priority
@@ -33,7 +33,7 @@ function getBoardCardTemplate(indexTask) {
 
 function getNoTask(title) {
   return `
-    <div class="no-task-feedback font-OpenSans-400-16px d-flex-row-c-c">No Tasks ${title}</div>
+    <div class="no-task-feedback">No Tasks ${title}</div>
     <div class="d-none col-empty-wrap"></div>
     `;
 }
@@ -43,20 +43,20 @@ function getTaskCardSubtaskTemplate(indexTask) {
   <div class="progress-bar">
     <div class="progress-bar-status" id="progress-${indexTask}"></div>
   </div>
-  <div class="font-Inter-400-12px text-color-black d-flex">
+  <span class="progress-text">
     ${getTaskCompletedSubtasksNumber(indexTask)}/${
     tasksArray[indexTask][1].subtasks.length
   } Subtasks
-  </div>
+  </span>
   `;
 }
 
 function getTaskCardContactsTemplate(indexTaskContact, indexTask) {
   return `
-  <div class="task-card-contact-badge d-flex-row-c-c ${getContactColorClassNameByFirebaseId(
+  <div class="task-card-contact-badge ${getContactColorClassNameByFirebaseId(
     tasksArray[indexTask][1].assignedTo[indexTaskContact][1].Id
   )}">
-    <div class="font-Inter-400-12px">
+    <div class="badge-text">
       ${getFirstTwoStringInitialsByFirebaseId(
         tasksArray[indexTask][1].assignedTo[indexTaskContact][1].Id
       )}

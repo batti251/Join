@@ -14,6 +14,7 @@ async function initBoard() {
  *
  */
 async function renderBoard() {
+  renderBoardColumn("triage", "triage");
   renderBoardColumn("to-do", "todo");
   renderBoardColumn("in-progress", "inprogress");
   renderBoardColumn("await-feedback", "awaitfeedback");
@@ -141,9 +142,9 @@ function setNoTaskFoundFeedback(foundRef) {
  */
 function openAddTaskOverlay(taskStatusId) {
   let addTaskOverlayWrap = document.getElementById("add-task-overlay-wrap");
-  let addTaskOverlayBGWrap = document.getElementById("add-task-overlay-bg-wrap")
+  let addTaskOverlayBGWrap = document.getElementById("add-task-overlay-bg-wrap");
     addTaskOverlayWrap.classList.remove("d-none");
-    addTaskOverlayBGWrap.classList.add("disable-scroll")
+    addTaskOverlayBGWrap.classList.add("disable-scroll");
     addTaskOverlayBGWrap.classList.add("dim-active");
   setTimeout(() => {
   renderAddTaskForm("add-task-overlay", taskStatusId);
@@ -157,7 +158,7 @@ function openAddTaskOverlay(taskStatusId) {
 function closeAddTaskOverlay() {
   let addTaskOverlayWrap = document.getElementById("add-task-overlay-wrap");
   let taskOverlayWrap = document.getElementById("task-overlay-wrap");
-  let addTaskOverlayBGWrap = document.getElementById("add-task-overlay-bg-wrap")
+  let addTaskOverlayBGWrap = document.getElementById("add-task-overlay-bg-wrap");
     addTaskOverlayWrap.classList.remove("overlay-open");
     addTaskOverlayBGWrap.classList.remove("dim-active");
     resetrequiredFields()
