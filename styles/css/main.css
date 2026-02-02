@@ -1595,6 +1595,28 @@ form > .input-container {
     height: 100vh;
   }
 }
+.join-span {
+  color: #29ABE2;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.join-span > a:visited {
+  color: #29ABE2;
+}
+
+main {
+  overflow-y: scroll;
+}
+
+ul {
+  list-style: disc;
+}
+
+.help-legal-polilcy-wrap {
+  padding: 0 64px;
+}
+
 /*  @keyframes easein {
    100% {
      top: 37px;

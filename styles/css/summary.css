@@ -463,7 +463,7 @@ h1 {
     flex-direction: column;
     margin: 16px 8px 40px 8px;
   }
-  .metrics-header h1 {
+  h1 {
     font-size: 47px;
   }
   .metrics-subtitle {

@@ -1,3 +1,8 @@
+@use './../abstracts/mixin' as *;
+@use './../abstracts/variables' as *;
+
+
+
 .join-span{
     color: #29ABE2;
     font-weight: bold;
