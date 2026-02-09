@@ -10,14 +10,16 @@ main {
   transform: translate(-50%, -50%);
 }
 
-  aside{
-    align-items: flex-start;
-    width: 100%;
-  }
+aside {
+  align-items: flex-start;
+  width: 100%;
+}
 
 .join-logo {
   > img {
-    top: 8%;
+    position: absolute;
+    top: 4%;
+    left: 4%;
   }
 }
 
@@ -108,6 +110,24 @@ h2 {
   }
 }
 
+.btn-group{
+  @include dFlex($fd: row, $g: 16px, $ai: unset, $jc: unset);
+  @include size($w: 100%);
+}
+
+
+body:has(strong.mail-hover:hover) button.mail-hover {
+  animation: pulse 1s;
+}
+
+body:has(strong.form-hover:hover) button.form-hover {
+  animation: pulse 1s;
+}
+
+strong[class*="hover"]{
+  color: $color-highlight;
+}
+
 @media screen and (max-width: 992px) {
   .choice-wrap {
     padding: 20px;
@@ -162,7 +182,6 @@ h2 {
     background-color: $color-primary;
   }
 }
-
 
 @media screen and (max-width: 600px) {
   .grid {

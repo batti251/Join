@@ -326,6 +326,10 @@ form > .input-container > .login-error {
   position: relative;
 }
 
+.mail-request {
+  gap: 8px;
+}
+
 input[type=checkbox] {
   background: url("./../../../assets/icons/checkbox.svg") no-repeat;
   background-position: center;
@@ -1595,28 +1599,12 @@ form > .input-container {
     height: 100vh;
   }
 }
-.join-span {
-  color: #29ABE2;
-  font-weight: bold;
-  cursor: pointer;
+@keyframes pulse {
+  50% {
+    transform: scale(1.1);
+    background-color: #2a3647;
+  }
 }
-
-.join-span > a:visited {
-  color: #29ABE2;
-}
-
-main {
-  overflow-y: scroll;
-}
-
-ul {
-  list-style: disc;
-}
-
-.help-legal-polilcy-wrap {
-  padding: 0 64px;
-}
-
 /*  @keyframes easein {
    100% {
      top: 37px;
@@ -1952,7 +1940,7 @@ nav > span {
   color: #a8a8a8;
 }
 .policy-legal > a:hover {
-  background-color: #2a3d59;
+  background-color: #29abe2;
 }
 
 .active {

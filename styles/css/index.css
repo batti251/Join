@@ -1,3 +1,9 @@
+@keyframes pulse {
+  50% {
+    transform: scale(1.1);
+    background-color: #2a3647;
+  }
+}
 /*  @keyframes easein {
    100% {
      top: 37px;
@@ -306,6 +312,10 @@ form > .input-container > .login-error {
   width: auto;
   margin: 2px 0;
   position: relative;
+}
+
+.mail-request {
+  gap: 8px;
 }
 
 input[type=checkbox] {
@@ -706,7 +716,7 @@ nav > span {
   color: #a8a8a8;
 }
 .policy-legal > a:hover {
-  background-color: #2a3d59;
+  background-color: #29abe2;
 }
 
 .active {

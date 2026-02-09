@@ -1,3 +1,9 @@
+@keyframes pulse {
+  50% {
+    transform: scale(1.1);
+    background-color: #2a3647;
+  }
+}
 /*  @keyframes easein {
    100% {
      top: 37px;
@@ -141,7 +147,9 @@ aside {
 }
 
 .join-logo > img {
-  top: 8%;
+  position: absolute;
+  top: 4%;
+  left: 4%;
 }
 
 .container-wrap {
@@ -288,6 +296,28 @@ h2 {
 }
 .signup-container > a {
   color: white;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: unset;
+  align-items: unset;
+  flex-direction: row;
+  gap: 16px;
+  height: auto;
+  width: 100%;
+}
+
+body:has(strong.mail-hover:hover) button.mail-hover {
+  animation: pulse 1s;
+}
+
+body:has(strong.form-hover:hover) button.form-hover {
+  animation: pulse 1s;
+}
+
+strong[class*=hover] {
+  color: #29abe2;
 }
 
 @media screen and (max-width: 992px) {

@@ -2,6 +2,7 @@ let contactsArray = [];
 let tasksArray = [];
 let overlayTransitionMiliSeconds = 300;
 let newContact = "newContact";
+let emptyJSON = {};
 
 let contactColorClasses = [
   "bg-orange",
@@ -224,7 +225,7 @@ function showToastMessage(htmlId) {
   }, 10);
   setTimeout(() => {
     document.body.style.overflow = "auto";
-    
+
     document.getElementById(htmlId).classList.remove("d-none");
   }, 500);
 }
@@ -358,7 +359,7 @@ function resetErrorMessage() {
 /**
  * This Function adds z-index-1 - class to current clicked element
  * It removes all current set z-index-1. classes
- * 
+ *
  * @param {ThisType} dropdown - the clicked element
  */
 function setZIndex(dropdown) {
@@ -368,4 +369,42 @@ function setZIndex(dropdown) {
     i.classList.remove("z-index-1");
   });
   dropdown.classList.add("z-index-1");
+}
+
+function sendMail(e) {
+  e.preventDefault();
+  let form = new FormData(e.target);
+  
+  for (const [key, values] of form) {
+    emptyJSON[key] = values;
+  }
+  console.log(emptyJSON);
+
+
+  fetch("https://join-issue.sebastian-buenz.de/sendMail.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(emptyJSON)
+  })
+  .then(response => response.text())
+  .then(result => {
+    console.log("Mail sent:", result);
+    alert("Mail wurde gesendet ✅");
+  })
+  .catch(error => {
+    console.error("Error:", error);
+    alert("Fehler beim Senden ❌");
+  });
+
+  resetInputs()
+
+}
+
+function resetInputs() {
+  let requiredFields = document.querySelectorAll('[required]');
+  [...requiredFields].forEach(e => { 
+   e.value = ""
+  });
 }

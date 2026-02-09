@@ -96,7 +96,7 @@ main {
     > a {
       @include text($c: #a8a8a8);
       &:hover {
-        color: #29abe2;
+        color: $color-highlight !important;
         font-weight: 600;
         font-style: bold;
       }
