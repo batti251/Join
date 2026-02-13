@@ -195,20 +195,32 @@ main {
   color: #ffffff;
   width: 100%;
   cursor: pointer;
+  position: relative;
+  touch-action: pan-x pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.task-card-wrap {
+.drag-handler {
+  width: 20%;
+  height: 20%;
+  background-image: url("../../assets/icons/drag-indicator.svg");
+  background-repeat: round;
+  background-size: contain;
   touch-action: none;
 }
 
-.task-card-wrap.dragging {
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.85;
+.drag-handler:hover {
+  cursor: grab;
 }
 
-.task-card-wrap:active {
-  rotate: 5deg;
+.task-card-wrap.dragging {
+  z-index: 9999;
+  opacity: 0.85;
+  cursor: grabbing;
 }
 
 .col-empty-wrap:last-of-type {
@@ -227,12 +239,12 @@ main {
   align-items: unset;
   flex-direction: column;
   gap: 24px;
-  height: 240px;
-  width: auto;
+  /* @include size($h: 240px); */
   min-width: 180px;
   max-width: 210px;
   padding: 16px;
   flex: 1;
+  /* touch-action: pan-x; */
 }
 
 .task-info-wrap {
@@ -282,6 +294,8 @@ main {
   font-size: 1rem;
   font-weight: 400;
   line-height: 120%;
+  height: 20px;
+  width: auto;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -294,8 +308,9 @@ main {
   align-items: unset;
   flex-direction: column;
   gap: 8px;
-  max-height: 30px;
-  height: 100%;
+  /* max-height: 30px;
+  height: 100%; */
+  height: 30px;
 }
 
 .task-priority-wrap {
@@ -304,6 +319,8 @@ main {
   align-items: center;
   flex-direction: row;
   gap: 8px;
+  height: 40px;
+  width: auto;
 }
 
 .progress-bar-wrap {
@@ -365,7 +382,7 @@ main {
     height: 100%;
   }
   .task-card-wrap {
-    max-height: 268px;
+    max-height: 288px;
     width: 204px;
   }
   .no-task-feedback {
@@ -424,7 +441,7 @@ main {
     gap: 8px;
   }
   .task-card-wrap {
-    max-height: 280px;
+    max-height: 240px;
   }
   .board-search-add-task-wrap {
     width: 100%;

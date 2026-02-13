@@ -97,10 +97,7 @@ function searchTask() {
 }
 
 async function moveTaskToColumn(column) {
-  console.log(column);
-
   if (!column || !currentTask) return;
-
   const targetStatus = column.id.replace("-", "");
   await updateDatabaseObject(`tasks/${currentTask[0]}/status`, targetStatus);
   await initBoard();
@@ -113,6 +110,7 @@ const dragState = {
   startY: 0,
   offsetX: 0,
   offsetY: 0,
+  pointerId: null,
   initialRect: null,
   isDragging: false,
   hasPointerCapture: false,
@@ -120,9 +118,10 @@ const dragState = {
 };
 
 const dragConfig = {
-  longPressDelay: 100,
+  longPressDelay: 250,
   autoScrollEdge: 80,
   autoScrollSpeed: 12,
+  threshold: 12,
 };
 
 const scrollState = {
@@ -150,64 +149,40 @@ async function pointerDown(event, taskIndex) {
  * @param {Number} taskIndex - index of the pointed down task
  */
 function dragStateInitiate(event, taskIndex) {
-  dragState.element = event.currentTarget;
+  dragState.element = event.currentTarget.parentElement.parentElement;
   dragState.taskIndex = taskIndex;
   dragState.startX = event.clientX;
   dragState.startY = event.clientY;
   dragState.isDragging = false;
+  dragState.pointerId = event.pointerId;
   dragState.sourceColumn = event.currentTarget.closest(".col-content");
-  dragState.longPressTimer = setTimeout(
-    () => startDrag(event),
-    dragConfig.longPressDelay,
-  );
+  dragState.longPressTimer = setTimeout(startDrag, dragConfig.longPressDelay);
 }
 
 /**
+ * Function handler for setting dragState-Object properly
  *
- * @param {PointerEvent} event - the active pointer move Event
  */
-async function startDrag(event) {
-  if (dragState.isDragging) return;
-  setPointerCapture(event);
-  changeDragStateStart(dragState.element, event);
-  tasksArray = await getTasksArray();
-  currentTask = tasksArray[dragState.taskIndex];
+function startDrag() {
+  if (dragState.isDragging || !dragState.element) return;
+  setDragStateStart();
   toggleDragArea();
   assignDragStateObject(dragState.element);
-  dragState.element.classList.add("dragging");
 }
 
 /**
- * Sets the dragged Element as capture target
- * @param {PointerEvent} event - the active pointer move Event
- */
-function setPointerCapture(event) {
-  dragState.element.setPointerCapture?.(event.pointerId);
-}
-
-/**
- * Sets the dragged Element to the necessary states to move it properly
+ * Sets the dragged Element to the necessary states to move it while properly styled
  *
- * @param {Object} el - the current dragged Element
- * @param {PointerEvent} event - the active pointer move Event
  */
-function changeDragStateStart(el, event) {
+function setDragStateStart() {
+  /* dragState.element.setPointerCapture?.(dragState.pointerId); */
   dragState.isDragging = true;
   dragState.hasPointerCapture = true;
-  adjustDraggedElementRect(el, event);
-}
-
-/**
- * Sets the Size of the dragged Element and let it move with the touch/mouse-event
- * Recalculate the offsets to avoid elements shifting
- *
- * @param {Object} el - the current dragged Element
- * @param {PointerEvent} event - the active pointer move Event
- */
-function adjustDraggedElementRect(el, event) {
-  dragState.initialRect = el.getBoundingClientRect();
-  dragState.offsetX = event.clientX - dragState.initialRect.left;
-  dragState.offsetY = event.clientY - dragState.initialRect.top;
+  dragState.initialRect = dragState.element.getBoundingClientRect(); //behält Form bei
+  dragState.offsetX = dragState.startX - dragState.initialRect.left; //behält Maus an der Stelle
+  dragState.offsetY = dragState.startY - dragState.initialRect.top; //behält Maus an der Stelle
+  dragState.element.classList.add("dragging");
+  currentTask = tasksArray[dragState.taskIndex];
 }
 
 /**
@@ -230,10 +205,27 @@ function assignDragStateObject(el) {
  * @param {PointerEvent} event - the active pointer move Event
  */
 function pointerMove(event) {
-  event.preventDefault();
-  dragState.element.style.left = `${event.clientX - dragState.offsetX}px`;
-  dragState.element.style.top = `${event.clientY - dragState.offsetY}px`;
-  handleAutoScroll(event.clientY);
+  cancelStartDrag(event);
+  if (dragState.isDragging) {
+    event.preventDefault();
+    dragState.element.style.left = `${event.clientX - dragState.offsetX}px`;
+    dragState.element.style.top = `${event.clientY - dragState.offsetY}px`;
+    handleAutoScroll(event.clientY);
+  }
+}
+
+/**
+ * Function Handler to cancel {@link startDrag}-Function
+ * @param {PointerEvent} event - the active pointer move Event
+ */
+function cancelStartDrag(event) {
+  const dx = Math.abs(event.clientX - dragState.startX);
+  const dy = Math.abs(event.clientY - dragState.startY);
+  if (!dragState.isDragging && (dy > dragConfig.threshold || dx > dragConfig.threshold)) {
+    clearTimeout(dragState.longPressTimer);
+    cleanupDrag(event);
+    return;
+  }
 }
 
 /**
@@ -247,20 +239,21 @@ async function pointerUp(event) {
   clearTimeout(dragState.longPressTimer);
   if (dragState.isDragging) {
     suppressClick = true;
+    handleTaskClick(dragState.taskIndex);
     await handleDrop(event);
   }
   cleanupDrag(event);
 }
 
 /**
- * Drops the element to the designated column, when dropped over a valid dropzone
+ * Drops the element to the target column, when dropped over a valid dropzone
  * When the element is released outside the dropzone, it moves back to the source column
  * @param {PointerEvent} event - the active pointer move Event
  */
 async function handleDrop(event) {
   const target = document
-    .elementFromPoint(event.clientX, event.clientY)
-    ?.closest(".col-content");
+    .elementsFromPoint(event.clientX, event.clientY)
+    .filter((e) => e.className == "col-content")[0];
   await moveTaskToColumn(target ?? dragState.sourceColumn);
 }
 
@@ -273,10 +266,12 @@ async function handleDrop(event) {
  * @param {PointerEvent} event - the active pointer Up Event
  */
 function cleanupDrag(event) {
+  if (dragState.element) {
+    cleanDragStateObject();
+  }
   stopPointerCapture(event);
   stopAutoScroll();
   dragState.element?.classList.remove("dragging");
-  cleanDragStateObject();
   document.removeEventListener("pointermove", pointerMove);
   document.removeEventListener("pointerup", pointerUp);
 }
@@ -287,10 +282,7 @@ function cleanupDrag(event) {
  * @param {PointerEvent} event - the active pointer Up Event
  */
 function stopPointerCapture(event) {
-  if (
-    dragState.hasPointerCapture &&
-    dragState.element?.hasPointerCapture?.(event.pointerId)
-  ) {
+  if (dragState.hasPointerCapture && dragState.element?.hasPointerCapture?.(event.pointerId)) {
     dragState.element.releasePointerCapture(event.pointerId);
   }
 }
@@ -348,7 +340,7 @@ function startAutoScroll(direction) {
 }
 
 /**
- * Continues scrolling using requestAnimationFrame, 
+ * Continues scrolling using requestAnimationFrame,
  * as long as direction property is set to -1 or 1
  */
 function scrollLoop() {
@@ -356,7 +348,8 @@ function scrollLoop() {
     scrollState.rafId = null;
     return;
   }
-  scrollState.container.scrollTop += scrollState.direction * dragConfig.autoScrollSpeed;
+  scrollState.container.scrollTop +=
+    scrollState.direction * dragConfig.autoScrollSpeed;
   scrollState.rafId = requestAnimationFrame(scrollLoop);
 }
 
@@ -455,4 +448,3 @@ async function submitEditTask(indexTask) {
     overlay.innerHTML = "";
   }, 500);
 }
-

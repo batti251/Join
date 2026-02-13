@@ -139,7 +139,10 @@ async function updateDatabaseObject(path = "", object = {}) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(object),
+    
   });
+  console.log(response);
+  
 }
 
 /**
@@ -380,8 +383,9 @@ function sendMail(e) {
   }
   console.log(emptyJSON);
 
-
-  fetch("https://join-issue.sebastian-buenz.de/sendMail.php", {
+/* https://join-issue.sebastian-buenz.de/sendMail.php */
+/* http://localhost:5678/webhook-test/b733bc62-d1cd-4647-b732-d33b763cbb43 */
+  fetch("https://n8n.sebastian-buenz.de/webhook/b733bc62-d1cd-4647-b732-d33b763cbb43", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
