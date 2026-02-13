@@ -239,7 +239,6 @@ async function pointerUp(event) {
   clearTimeout(dragState.longPressTimer);
   if (dragState.isDragging) {
     suppressClick = true;
-    handleTaskClick(dragState.taskIndex);
     await handleDrop(event);
   }
   cleanupDrag(event);

@@ -1,8 +1,7 @@
 function getBoardCardTemplate(indexTask) {
   return `
-    <div class="task-card-wrap"   >
-    
-          <div class="task-card"  onclick="handleTaskClick(${indexTask})">
+    <div class="task-card-wrap"  onclick="handleTaskClick(${indexTask})"  >
+          <div class="task-card" >
             <div>
               <div class="task-category ${getTaskCategoryClass(
                 tasksArray[indexTask][1].category

@@ -141,8 +141,6 @@ async function updateDatabaseObject(path = "", object = {}) {
     body: JSON.stringify(object),
     
   });
-  console.log(response);
-  
 }
 
 /**

@@ -181,11 +181,10 @@ function resetrequiredFields() {
 
 
 function handleTaskClick(indexTask) {
-  
   if (suppressClick) {
-    suppressClick = false;
+    suppressClick = false
     return;
-  }
+  } 
   showTaskOverlay(indexTask);
 }
 
